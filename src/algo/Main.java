@@ -5,7 +5,7 @@ package algo;
  */
 public class Main {
 	static boolean firstrun = true;
-	// Sets the n in the Sn value to 2 (for  a 2 dimensional)
+	// Sets the n in the Sn value to 2 (for a 2 dimensional array)
 	static int n = 2;
 	// Creates a new array for storing the current value (working on)
 	public static double[] CurrentPoint = new double[n];
@@ -45,7 +45,6 @@ public class Main {
 				+ upperBound[1]);
 
 		// set directions
-
 		for (int i = 0; i < n; i++) {
 			S[i][i] = 1;
 		}
