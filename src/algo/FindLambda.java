@@ -21,7 +21,7 @@ public class FindLambda {
 			currentPoint[j] = startPoint[j] + lambda * direction[j];
 		}
 		double minObjective = EvaluateObjective.eobj(currentPoint);
-		int nIter = Integer.parseInt(Main.arg4);
+		int nIter = Integer.parseInt(Main.nIter);
 		for (int i = 0; i <= nIter; i++) {
 			lambda += (boundsLambda[1] - boundsLambda[0]) / nIter;
 			for (int j = 0; j < startPoint.length; j++) {
