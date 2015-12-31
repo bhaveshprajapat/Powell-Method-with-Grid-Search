@@ -26,7 +26,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		arg4 = args[4];
-		System.out.println("nIter is" + arg4);
+		System.out.println("nIter is " + arg4);
 		CurrentPoint = StartPoint;
 		tolerance = Double.parseDouble(args[1]);
 		// While i is less than the set dimensions
@@ -53,7 +53,7 @@ public class Main {
 			S[i][i] = 1;
 		}
 		// 1-d optimisation to get lambda value
-		boundsLambda = OneDOptimiser.boundsLambda(StartPoint, S[n - 1],
+		boundsLambda = GetLambdaBounds.getLambdaBounds(StartPoint, S[n - 1],
 				lowerBound, upperBound);
 		lambda = FindLambda.findLambda(CurrentPoint, S[n - 1], boundsLambda);
 		//System.out.println("optimal lambda =" + lambda);
@@ -117,7 +117,7 @@ public class Main {
 			boundsLambda = GetLambdaBounds.getLambdaBounds(CurrentPoint,
 					newDirection, lowerBound, upperBound);
 
-			lambda = OneDOptimiser.lambda(CurrentPoint, newDirection,
+			lambda = FindLambda.findLambda(CurrentPoint, newDirection,
 					boundsLambda);
 			// update current point
 			for (int i = 0; i < n; i++) {
