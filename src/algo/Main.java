@@ -1,14 +1,11 @@
 package algo;
-
 /**
  * @author Bhavesh Prajapat & Jed Rutherford (& Joe)
  *
  */
 public class Main {
-
 	static boolean firstrun = true;
-
-	// Sets the n in the Sn value to 2 (for 2 dimensional arrays)
+	// Sets the n in the Sn value to 2 (for  a 2 dimensional)
 	static int n = 2;
 	// Creates a new array for storing the current value (working on)
 	public static double[] CurrentPoint = new double[n];
@@ -18,15 +15,15 @@ public class Main {
 	static double[] lowerBound = new double[n];
 	static double[] upperBound = new double[n];
 	static double[] boundsLambda;
-	// Create direction double array
+	// Create direction jagged 2 dimensional double array
 	static double[][] S = new double[n][n];
 	public static double lambda;
 	public static double tolerance;
-	public static String arg4 = new String();
+	public static String nIter = new String();
 
 	public static void main(String[] args) {
-		arg4 = args[4];
-		System.out.println("nIter is" + arg4);
+		nIter = args[4];
+		System.out.println("nIter is " + nIter);
 		CurrentPoint = StartPoint;
 		tolerance = Double.parseDouble(args[1]);
 		// While i is less than the set dimensions
@@ -40,11 +37,11 @@ public class Main {
 			upperBound[i] = Double.parseDouble(args[3]);
 		}
 		// Prints outputs
-		System.out.print(" initial point = " + StartPoint[0] + ","
+		System.out.println("Initial point : " + StartPoint[0] + ","
 				+ StartPoint[1]);
-		System.out.print(" lower bounds = " + lowerBound[0] + ","
+		System.out.println("Lower bound : " + lowerBound[0] + ","
 				+ lowerBound[1]);
-		System.out.print(" upper bounds = " + upperBound[0] + ","
+		System.out.println("Upper bound : " + upperBound[0] + ","
 				+ upperBound[1]);
 
 		// set directions
@@ -53,7 +50,7 @@ public class Main {
 			S[i][i] = 1;
 		}
 		// 1-d optimisation to get lambda value
-		boundsLambda = OneDOptimiser.boundsLambda(StartPoint, S[n - 1],
+		boundsLambda = GetLambdaBounds.getLambdaBounds(StartPoint, S[n - 1],
 				lowerBound, upperBound);
 		lambda = FindLambda.findLambda(CurrentPoint, S[n - 1], boundsLambda);
 		//System.out.println("optimal lambda =" + lambda);
@@ -117,7 +114,7 @@ public class Main {
 			boundsLambda = GetLambdaBounds.getLambdaBounds(CurrentPoint,
 					newDirection, lowerBound, upperBound);
 
-			lambda = OneDOptimiser.lambda(CurrentPoint, newDirection,
+			lambda = FindLambda.findLambda(CurrentPoint, newDirection,
 					boundsLambda);
 			// update current point
 			for (int i = 0; i < n; i++) {
