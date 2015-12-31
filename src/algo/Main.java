@@ -52,7 +52,7 @@ public class Main {
 		boundsLambda = GetLambdaBounds.getLambdaBounds(StartPoint, S[n - 1],
 				lowerBound, upperBound);
 		lambda = FindLambda.findLambda(CurrentPoint, S[n - 1], boundsLambda);
-		//System.out.println("optimal lambda =" + lambda);
+		System.out.println("optimal lambda value found was =" + lambda);
 
 		// update current point & save z
 		double z[] = new double[n];
@@ -121,7 +121,7 @@ public class Main {
 			}
 			System.out.println("Current points = " + CurrentPoint[0] + ","
 					+ CurrentPoint[1]);
-			//System.out.println("optimal lambda =" + lambda);
+			System.out.println("optimal lambda (new direction)=" + lambda);
 			// stop condition
 			stop = StopCriteria.stop(EvaluateObjective.eobj(z),
 					EvaluateObjective.eobj(CurrentPoint));

@@ -14,6 +14,7 @@ public class FindLambda {
 	 */
 	public static double findLambda(double[] startPoint, double[] direction,
 			double[] boundsLambda) {
+		
 		double[] currentPoint = new double[startPoint.length];
 		double lambda = boundsLambda[0];
 		double bestLambda = lambda;
@@ -32,7 +33,7 @@ public class FindLambda {
 				minObjective = currentObjective;
 				minobj = minObjective;
 				bestLambda = lambda;
-				System.out.println("FL got: " + bestLambda);
+				System.out.println("Lamba value improved to: " + bestLambda);
 			}
 		}
 		return bestLambda;
